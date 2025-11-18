@@ -4,8 +4,12 @@ import ejs from "ejs";
 import path from "path";
 import studentsRouter from "./routes/students.routes.js";
 import studentControllers from "./controllers/students.controllers.js";
+import { fileURLToPath } from 'url';
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //settings
 app.set("port", process.env.PORT||3000);
@@ -27,7 +31,12 @@ app.use((req, res, next) => {
     // O res.status(404).json({ message: "Ruta no encontrada" });
 });
 
+// CONFIGURACIÓN DE VISTAS CORREGIDA
+app.set('views', path.join(__dirname, 'views')); 
+app.set('view engine', 'ejs');
+
 //routes
+app.get('/', studentControllers.getAll);
 app.use("/api/students",studentsRouter);
 
 export default app;
