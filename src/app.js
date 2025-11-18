@@ -45,11 +45,11 @@ export default app;
 import express from "express";
 import morgan from "morgan";
 import path from "path";
-import teachersRouter from ".routes/teachers.routers.js";
 import studentsRouter from "./routes/students.routes.js";
-import teachersControllers from ".routers/teachers.controllers.js";
 import studentControllers from "./controllers/students.controllers.js";
 import { fileURLToPath } from 'url';
+import teacherControllers from "./controllers/teachers.controllers.js";
+import teacherRouter from "./routes/teachers.routes.js";
 
 const app = express();
 
@@ -69,10 +69,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
-//app.get('/', studentControllers.getAll);
-//app.use("/api/students",studentsRouter);
-app.get("/", teachersControllers.getAll);
-app.get("/api/teachers",teachersRouter);
+app.get('/', studentControllers.getAll);
+app.use("/api/students", studentsRouter);
+// Mount the teachers router under /api/teachers
+app.use("/api/teachers", teacherRouter);
 
 
 app.use((req, res, next) => {

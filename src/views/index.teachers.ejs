@@ -105,17 +105,17 @@
           <!--Aqui va el formulario-->
           <div class="cart">
             <div class="cart-body">
-              <form action="/api/students/insertOne" method="POST">
+              <form action="/api/teachers/insertOne" method="POST">
                 <div class="row">
                   <div class="col-lg-6">
-                    <label for="txtStudentId" class="form-label"
+                    <label for="txtTeacherId" class="form-label"
                       >Number Control</label
                     >
                     <input
                       type="text"
                       class="form-control"
-                      id="txtStudentId"
-                      name="student_id"
+                      id="txtTeacherId"
+                      name="teacher_id"
                     />
                   </div>
                   <div class="col-lg-6">
@@ -141,32 +141,52 @@
                     />
                   </div>
                   <div class="col-lg-6">
-                    <label for="txtGrade" class="form-label">Grade</label>
+                    <label for="txtAge" class="form-label">Age</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="txtGrade"
-                      name="grade"
+                      id="txtAge"
+                      name="age"
                     />
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-lg-6">
-                    <label for="txtGroup" class="form-label">Group</label>
+                    <label for="txtEmail" class="form-label">Email</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="txtGroup"
-                      name="group"
+                      id="txtEmail"
+                      name="email"
                     />
                   </div>
                   <div class="col-lg-6">
-                    <label for="txtAverage" class="form-label">Average</label>
+                    <label for="txtArea" class="form-label">Area</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="txtAverage"
-                      name="average"
+                      id="txtArea"
+                      name="area"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <label for="txtArea" class="form-label">Salary</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="txtSalary"
+                      name="salary"
+                    />
+                  </div>
+                  <div class="col-lg-6">
+                    <label for="txtSalary" class="form-label">Years of Service</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="txtYearsOfService"
+                      name="years_of_service"
                     />
                   </div>
                 </div>
@@ -197,19 +217,19 @@
               </tr>
             </thead>
             <tbody>
-              <% students.forEach(student =>{ %>
+              <% teachers.forEach(teacher =>{ %>
               <tr>
-                <td><%= student.student_id %></td>
-                <td><%= student.name %></td>
-                <td><%= student.lastname %></td>
-                <td><%= student.grade %></td>
-                <td><%= student.group %></td>
-                <td><%= student.average %></td>
+                <td><%= teacher.teacher_id %></td>
+                <td><%= teacher.name %></td>
+                <td><%= teacher.lastname %></td>
+                <td><%= teacher.age %></td>
+                <td><%= teacher.email %></td>
+                <td><%= teacher.area %></td>
                 <td>
-                  <a href="/api/students/getOne/<%= student.student_id %>" class="btn btn-warning btn-sm"><i class="bi bi-pen"></i></a>                  
+                  <a href="/api/teachers/getOne/<%= teacher.teacher_id %>" class="btn btn-warning btn-sm"><i class="bi bi-pen"></i></a>                  
                 </td>
                 <td>
-                  <a href="/api/students/deleteOne/<%= student.student_id %>" class="btn btn-danger btn-sm"><i class="bi bi-trash3-fill"></i></a>                             
+                  <a href="/api/teachers/deleteOne/<%= teacher.teacher_id %>" class="btn btn-danger btn-sm"><i class="bi bi-trash3-fill"></i></a>                             
                 </td>
               </tr>
               <%}); %>

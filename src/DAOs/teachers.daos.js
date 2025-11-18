@@ -1,4 +1,4 @@
-import Teachers from "../models/teachers.model ";
+import Teachers from "../models/teachers.model.js";
 const teachersDAOs = {};
 
 teachersDAOs.getAll = async() =>{
@@ -6,7 +6,7 @@ teachersDAOs.getAll = async() =>{
     return teachers
 };
 
-teachersDAOs,getOne = async(teacher_id)=>{
+teachersDAOs.getOne = async(teacher_id)=>{
   const teacher = await Teachers.findOne({teacher_id:teacher_id});
   return teacher;  
 };
