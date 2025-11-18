@@ -45,7 +45,9 @@ export default app;
 import express from "express";
 import morgan from "morgan";
 import path from "path";
+import teachersRouter from ".routes/teachers.routers.js";
 import studentsRouter from "./routes/students.routes.js";
+import teachersControllers from ".routers/teachers.controllers.js";
 import studentControllers from "./controllers/students.controllers.js";
 import { fileURLToPath } from 'url';
 
@@ -62,15 +64,17 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(express.urlencoded({extended: false}));
 
-// CONFIGURACIÓN DE VISTAS CORREGIDA
+// conf view 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// RUTAS (Todas las rutas funcionales deben ir aquí)
-app.get('/', studentControllers.getAll);
-app.use("/api/students",studentsRouter);
 
-// MANEJO DE ERROR 404 (Debe ir AL FINAL de todas las rutas)
+//app.get('/', studentControllers.getAll);
+//app.use("/api/students",studentsRouter);
+app.get("/", teachersControllers.getAll);
+app.get("/api/teachers",teachersRouter);
+
+
 app.use((req, res, next) => {
     res.status(404).render('404');
 });
