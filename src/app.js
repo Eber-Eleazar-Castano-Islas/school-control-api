@@ -51,7 +51,6 @@ import { fileURLToPath } from 'url';
 
 const app = express();
 
-// CÁLCULO DE RUTA PARA MÓDULOS ES (Corrige la búsqueda de vistas)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -69,7 +68,7 @@ app.set('view engine', 'ejs');
 
 // RUTAS (Todas las rutas funcionales deben ir aquí)
 app.get('/', studentControllers.getAll);
-app.use("/api/students",studentsRouter); // 🟢 ¡CORRECCIÓN! MOVIMOS ESTO AQUÍ
+app.use("/api/students",studentsRouter);
 
 // MANEJO DE ERROR 404 (Debe ir AL FINAL de todas las rutas)
 app.use((req, res, next) => {
