@@ -69,9 +69,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 
-app.get('/', studentControllers.getAll);
+//app.get('/', studentControllers.getAll);
 app.use("/api/students", studentsRouter);
 // Mount the teachers router under /api/teachers
+app.get('/',teacherControllers.getAll);
 app.use("/api/teachers", teacherRouter);
 
 
