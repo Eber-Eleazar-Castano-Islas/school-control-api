@@ -21,7 +21,7 @@ teacherControllers.getOne = async(req,res)=>{
     teachersDAOs.getOne(req.params.teacher_id)
     .then((teacher) => {
         if(teacher){
-            res.render("edit.ejs" , {teacher});
+            res.render("edit.teacher.ejs" , {teacher});
         }else{
             res.status(404).json({message:"Teacher not found"})
         }
