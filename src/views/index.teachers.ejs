@@ -101,7 +101,7 @@
         </nav>
       </div>
       <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-4">
           <!--Aqui va el formulario-->
           <div class="cart">
             <div class="cart-body">
@@ -181,12 +181,12 @@
                     />
                   </div>
                   <div class="col-lg-6">
-                    <label for="txtSalary" class="form-label">Years of Service</label>
+                    <label for="txtSalary" class="form-label">Seniority</label>
                     <input
                       type="text"
                       class="form-control"
-                      id="txtYearsOfService"
-                      name="years_of_service"
+                      id="txtSeniority"
+                      name="seniority"
                     />
                   </div>
                 </div>
@@ -202,7 +202,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-8">
           <!--Aqui va la tabla-->
           <table class="table table-primary table-striped">
             <thead>
@@ -210,9 +210,11 @@
                 <th># de Control</th>
                 <th>Name</th>
                 <th>Last Name</th>
-                <th>Grade</th>
-                <th>Group</th>
-                <th>Average</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Area</th>
+                <th>Salary</th>
+                <th>Seniority</th>
                 <th colspan="2">Action</th>
               </tr>
             </thead>
@@ -225,6 +227,8 @@
                 <td><%= teacher.age %></td>
                 <td><%= teacher.email %></td>
                 <td><%= teacher.area %></td>
+                <td><%= teacher.salary %></td>
+                <td><%= teacher.seniority %></td>
                 <td>
                   <a href="/api/teachers/getOne/<%= teacher.teacher_id %>" class="btn btn-warning btn-sm"><i class="bi bi-pen"></i></a>                  
                 </td>

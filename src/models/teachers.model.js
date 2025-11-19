@@ -12,7 +12,7 @@ const teacherSchema = new Schema({
     email: String,
     area: String, // materia que imparte
     salary: String,
-    years_of_service: Number //años de servicio
+    seniority: Number //años de servicio
 },{
     timestamps: true,
     versionKey: false
