@@ -5,7 +5,8 @@ studentControllers.getAll = (req,res) => {
     studentDaos.getAll()
         .then((students) => {
             
-           res.render("index.ejs", {students});
+           //res.render("index.ejs", {students});
+           res.json({data:students});
 
         })
         .catch((err) => {
@@ -23,7 +24,7 @@ studentControllers.getOne = async(req,res)=>{
     studentDaos.getOne(req.params.student_id)
     .then((student) => {
         if(student){
-            res.render("edit.ejs" , {student});
+            res.json({data:students});
         }else{
             res.status(404).json({message:"Student not found"})
         }
@@ -36,7 +37,7 @@ studentControllers.getOne = async(req,res)=>{
 studentControllers.insertOne=async(req, res) => {
     studentDaos.insertOne (req.body)
     .then((newStudent)=>{
-        res.redirect("/api/students/getAll");
+        res.json({data:newStudent});
     })
     .catch((error)=>{
         res.status(500).json({message:error.message});
@@ -47,7 +48,7 @@ studentControllers.updateOne=(req,res)=>{
     studentDaos.updateOne(req.params.student_id,req.body)
 .then((updatedStudent)=>{
     if (updatedStudent) {
-        res.redirect("/api/students/getAll");
+        res.json({data:updatedStudent});
     }
 })
 .catch((error) => {
@@ -59,7 +60,7 @@ studentControllers.deleteOne = (req, res) => {
 studentDaos.deleteOne (req.params.student_id)
 .then((deletedStudent) => {
         if (deletedStudent) {
-             res.redirect("/api/students/getAll");
+             res.json({data:deletedStudent});
         } else {
             res.status(404).json({ message: "Student not found" });
         }
